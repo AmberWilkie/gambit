@@ -1,3 +1,5 @@
+import { Storage, SqlStorage } from 'ionic-angular';
+
 angular.module('gambit.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -45,7 +47,7 @@ angular.module('gambit.controllers', [])
   $scope.indulgences = 0;
   $scope.activities = 0;
 
-  $scope.highScore = new Storage(SqlStorage, options);
+  $scope.highScore = new Storage(SqlStorage);
   storage.set('name', 'Max');
   storage.get('name').then((name) => {
   });
