@@ -46,7 +46,9 @@ angular.module('gambit.controllers', [])
   $scope.activities = 1;
 
   $scope.minusActivity = function() {
-    $scope.activities -= 1;
+    if($scope.activities > 0) {
+      $scope.activities -= 1;
+    }
   };
 
   $scope.plusActivity = function() {
@@ -54,7 +56,9 @@ angular.module('gambit.controllers', [])
   };
 
   $scope.minusIndulgence = function() {
-    $scope.indulgences -= 1;
+    if($scope.indulgences > 0) {
+      $scope.indulgences -= 1;
+    }
   };
 
   $scope.plusIndulgence = function() {
