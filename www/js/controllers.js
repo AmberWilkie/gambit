@@ -42,8 +42,9 @@ angular.module('gambit.controllers', [])
 })
 
 .controller('GameCtrl', function($scope) {
-  $scope.indulgences = 1;
-  $scope.activities = 1;
+  $scope.indulgences = 0;
+  $scope.activities = 0;
+
 
   $scope.minusActivity = function() {
     if($scope.activities > 0) {
@@ -59,7 +60,7 @@ angular.module('gambit.controllers', [])
     if($scope.indulgences > 0) {
       $scope.indulgences -= 1;
     } else {
-      alert("You lose!");
+      alert("You lose! High score saved.");
       $scope.activities = 0;
     }
   };
