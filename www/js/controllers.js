@@ -58,6 +58,9 @@ angular.module('gambit.controllers', [])
   $scope.minusIndulgence = function() {
     if($scope.indulgences > 0) {
       $scope.indulgences -= 1;
+    } else {
+      alert("You lose!");
+      $scope.activities = 0;
     }
   };
 
