@@ -45,6 +45,10 @@ angular.module('gambit.controllers', [])
   $scope.indulgences = 0;
   $scope.activities = 0;
 
+  $scope.highScore = new Storage(SqlStorage, options);
+  storage.set('name', 'Max');
+  storage.get('name').then((name) => {
+  });
 
   $scope.minusActivity = function() {
     if($scope.activities > 0) {
