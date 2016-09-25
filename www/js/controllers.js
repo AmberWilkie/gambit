@@ -55,6 +55,7 @@ angular.module('gambit.controllers', ['ngStorage'])
   $scope.minusActivity = function() {
     if($scope.activities > 0) {
       $scope.activities -= 1;
+      $localStorage.totalActivities = $scope.activities;
     }
   };
 
