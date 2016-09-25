@@ -1,4 +1,4 @@
-angular.module('gambit.controllers', ['gambit.services'])
+angular.module('gambit.controllers', ['ngStorage'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,11 +41,16 @@ angular.module('gambit.controllers', ['gambit.services'])
   // };
 })
 
-.controller('GameCtrl', function($scope, StorageService) {
-  $scope.indulgences = StorageService.totalIndulgences;
-  $scope.activities = StorageService.totalActivities;
-  console.log(StorageService.totalActivities);
+.controller('GameCtrl', function($scope, $localStorage) {
+  $localStorage = $localStorage.$default({
+    highScore: 0,
+    totalActivities: 0,
+    totalIndulgences: 0
+  });
 
+  $scope.indulgences = $localStorage.totalIndulgences;
+  $scope.activities = $localStorage.totalActivities;
+  $scope.highScore = $localStorage.highScore;
 
   $scope.minusActivity = function() {
     if($scope.activities > 0) {
@@ -55,6 +60,13 @@ angular.module('gambit.controllers', ['gambit.services'])
 
   $scope.plusActivity = function() {
     $scope.activities += 1;
+    $scope.tempHighScore = $scope.activities;
+    console.log($localStorage.highScore);
+    console.log($scope.highScore);
+    if ($localStorage.highScore < $scope.tempHighScore) {
+      $localStorage.highScore = $scope.tempHighScore;
+      console.log($localStorage.highScore);
+    }
   };
 
   $scope.minusIndulgence = function() {
