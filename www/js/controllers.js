@@ -61,21 +61,22 @@ angular.module('gambit.controllers', ['ngStorage'])
   $scope.plusActivity = function() {
     $scope.activities += 1;
     $localStorage.totalActivities = $scope.activities;
-    $scope.tempHighScore = $scope.activities;
-    if ($localStorage.highScore < $scope.tempHighScore) {
-      $localStorage.highScore = $scope.tempHighScore;
+    if ($localStorage.highScore < $scope.activities) {
+      $localStorage.highScore = $scope.activities;
+      $scope.highScore = $localStorage.highScore;
     }
   };
 
   $scope.minusIndulgence = function() {
-    $localStorage.highScore = 0;
+    // $localStorage.highScore = 0;
+    // $localStorage.totalActivities = 0;
+    // $localStorage.totalIndulgences = 0;
     if($scope.indulgences > 0) {
       $scope.indulgences -= 1;
+      $localStorage.totalIndulgences = $scope.indulgences;
     } else {
-      console.log($scope.activities);
-      console.log($localStorage.highScore);
-      debugger;
-      if($scope.activities > $localStorage.highScore) {
+      if($scope.activities == $localStorage.highScore) {
+        $localStorage.highScore = $scope.activities;
         alert("You lose! New high score: " + $localStorage.highScore);
       } else {
         alert("You lose!")
