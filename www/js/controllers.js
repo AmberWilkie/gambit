@@ -62,6 +62,11 @@ angular.module('gambit.controllers', ['ngStorage'])
   $scope.plusActivity = function() {
     $scope.activities += 1;
     $localStorage.totalActivities = $scope.activities;
+    var rand = Math.floor(Math.random() * (5) + 1);
+    if (rand == 1) {
+      $localStorage.totalIndulgences += 1;
+      $scope.indulgences = $localStorage.totalIndulgences;
+    }
     if ($localStorage.highScore < $scope.activities) {
       $localStorage.highScore = $scope.activities;
       $scope.highScore = $localStorage.highScore;
@@ -69,7 +74,7 @@ angular.module('gambit.controllers', ['ngStorage'])
   };
 
   $scope.minusIndulgence = function() {
-    // $localStorage.highScore = 0;
+    // $localStorage.highScore = 0; // Use only for reset during testing
     // $localStorage.totalActivities = 0;
     // $localStorage.totalIndulgences = 0;
     if($scope.indulgences > 0) {
