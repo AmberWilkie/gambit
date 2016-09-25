@@ -1,4 +1,4 @@
-angular.module('gambit.controllers', [])
+angular.module('gambit.controllers', ['gambit.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,9 +41,10 @@ angular.module('gambit.controllers', [])
   // };
 })
 
-.controller('GameCtrl', function($scope) {
-  $scope.indulgences = 0;
-  $scope.activities = 0;
+.controller('GameCtrl', function($scope, StorageService) {
+  $scope.indulgences = StorageService.totalIndulgences;
+  $scope.activities = StorageService.totalActivities;
+  console.log(StorageService.totalActivities);
 
 
   $scope.minusActivity = function() {
