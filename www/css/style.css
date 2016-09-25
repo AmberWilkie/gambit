@@ -14,3 +14,14 @@
 .h1 {
   font-size: 400%;
 }
+.outline {
+  color: #33cd5f;
+}
+
+.filled {
+  color: darkred;
+}
+
+.gray {
+  color: dimgray;
+}
