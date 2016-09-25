@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+.body {
+  /*font-family: ;*/
+}
+.row {
+  padding: 5%;
+  text-align: center;
+}
+.header {
+  padding: 0%;
+  padding-top: 5%;
+  text-align: center;
+}
+.h1 {
+  font-size: 400%;
+}

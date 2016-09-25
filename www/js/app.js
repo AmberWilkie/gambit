@@ -46,7 +46,8 @@ angular.module('gambit', ['ionic', 'gambit.controllers'])
     url: '/high-score',
     views: {
       'menuContent': {
-        templateUrl: 'templates/high-score.html'
+        templateUrl: 'templates/high-score.html',
+        controller: 'GameCtrl'
       }
     }
   });
